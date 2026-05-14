@@ -10,7 +10,7 @@ public class QuizController {
 
     @GetMapping("/health")
     public String healthCheck() {
-        return "Quiz Backend is running and connected!";
+        return "CI/CD Pipeline is working! Version 2 deployed automatically.";
     }
 
     // Add @PostMapping("/submit") and @GetMapping("/all") here later
