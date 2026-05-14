@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+
+    <div class="container">
+        <header class="glass-panel">
+            <h1>Online Quiz Platform</h1>
+            <p>Test your knowledge with our CI/CD pipeline integrated app</p>
+            <button id="setupBtn" class="btn btn-secondary">Initialize Database</button>
+        </header>
+
+        <main id="quizContainer" class="quiz-container glass-panel hidden">
+            <div id="questionsList" class="questions-list"></div>
+            <button id="submitBtn" class="btn btn-primary">Submit Answers</button>
+        </main>
+
+        <div id="emptyState" class="empty-state glass-panel">
+            <h2>No Questions Available</h2>
+            <p>Click "Initialize Database" to load sample questions.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Results -->
+    <div id="resultModal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <h2 id="resultTitle">Quiz Completed!</h2>
+            <div class="score-circle">
+                <span id="resultScore">0/0</span>
+            </div>
+            <p id="resultMessage"></p>
+            <button id="closeModalBtn" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
