@@ -26,6 +26,7 @@ pipeline {
             steps {
                 // Spins down old containers and starts new ones with the fresh build
                 sh 'docker-compose down'
+                sh 'docker-compose build --no-cache backend'
                 sh 'docker-compose up -d --build'
             }
         }
