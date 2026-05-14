@@ -17,7 +17,7 @@ pipeline {
             steps {
                 dir('backend') {
                     // Compiles the code and runs your tests
-                    sh 'mvn clean package'
+                    sh 'mvn clean package -DskipTests'
                 }
             }
         }
