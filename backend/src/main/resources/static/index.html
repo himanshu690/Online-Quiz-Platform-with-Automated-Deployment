@@ -15,19 +15,59 @@
 
     <div class="container">
         <header class="glass-panel">
-            <h1>Online Quiz Platform</h1>
-            <p>Test your knowledge with our CI/CD pipeline integrated app</p>
-            <button id="setupBtn" class="btn btn-secondary">Initialize Database</button>
+            <h1 id="mainTitle">Online Quiz Platform</h1>
+            <p id="mainSubtitle">Test your knowledge with our CI/CD pipeline integrated app</p>
+            <div class="header-actions">
+                <button id="setupBtn" class="btn btn-secondary">Initialize Database</button>
+                <button id="homeBtn" class="btn btn-primary hidden">Back to Tests</button>
+            </div>
         </header>
 
+        <!-- View 1: List of Tests -->
+        <main id="testsListContainer" class="glass-panel">
+            <div class="view-header">
+                <h2>Available Tests</h2>
+                <button id="showCreateTestBtn" class="btn btn-primary">Create New Test</button>
+            </div>
+            <div id="testsList" class="tests-list"></div>
+            <div id="noTestsState" class="empty-state hidden">
+                <p>No tests available. Click "Initialize Database" or "Create New Test" to get started.</p>
+            </div>
+        </main>
+
+        <!-- View 2: Create Test Form -->
+        <main id="createTestContainer" class="glass-panel hidden">
+            <h2>Create New Test</h2>
+            <div class="form-group">
+                <label for="testTitle">Title:</label>
+                <input type="text" id="testTitle" placeholder="Enter test title" class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="testDesc">Description:</label>
+                <input type="text" id="testDesc" placeholder="Enter test description" class="form-input">
+            </div>
+            
+            <div class="questions-builder">
+                <h3>Add Questions</h3>
+                <div id="questionsBuilderList"></div>
+                <button id="addQuestionFormBtn" class="btn btn-secondary">+ Add Question</button>
+            </div>
+            
+            <button id="saveTestBtn" class="btn btn-primary" style="margin-top: 20px;">Save Test</button>
+        </main>
+
+        <!-- View 3: Take Test -->
         <main id="quizContainer" class="quiz-container glass-panel hidden">
+            <h2 id="currentTestTitle">Take Test</h2>
+            <p id="currentTestDesc" style="margin-bottom: 20px; color: var(--text-secondary);"></p>
             <div id="questionsList" class="questions-list"></div>
             <button id="submitBtn" class="btn btn-primary">Submit Answers</button>
         </main>
 
-        <div id="emptyState" class="empty-state glass-panel">
+        <!-- Empty State for Take Test -->
+        <div id="emptyState" class="empty-state glass-panel hidden">
             <h2>No Questions Available</h2>
-            <p>Click "Initialize Database" to load sample questions.</p>
+            <p>This test has no questions.</p>
         </div>
     </div>
 

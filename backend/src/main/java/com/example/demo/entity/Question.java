@@ -4,7 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Question {
     @Id
@@ -17,6 +19,11 @@ public class Question {
     private String optionC;
     private String optionD;
     private String correctOption;
+
+    @ManyToOne
+    @JoinColumn(name = "quiz_id")
+    @JsonIgnore
+    private Quiz quiz;
 
     public Question() {}
 
@@ -50,4 +57,7 @@ public class Question {
 
     public String getCorrectOption() { return correctOption; }
     public void setCorrectOption(String correctOption) { this.correctOption = correctOption; }
+
+    public Quiz getQuiz() { return quiz; }
+    public void setQuiz(Quiz quiz) { this.quiz = quiz; }
 }
